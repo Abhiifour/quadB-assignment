@@ -9,7 +9,7 @@ export const editSlice = createSlice ({
     name :"editState",
     initialState,
     reducers:{
-        updateEditState : (state,action) =>{
+        updateEditState : (state) =>{
             const currState = state.editTaskState;
             state.editTaskState = !currState;
         }
