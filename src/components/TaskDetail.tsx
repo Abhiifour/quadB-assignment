@@ -12,7 +12,7 @@ import { CiBellOn } from "react-icons/ci";
 import { X, Trash2 } from 'lucide-react';
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { editDescription, editTask, removeTask, toggleCompleted, toggleImportant } from "../../store/taskSlice";
+import { editDescription, removeTask, toggleCompleted, toggleImportant } from "../../store/taskSlice";
 
 const TaskDetail = ({setSideBar,editTaskId}:{setSideBar:any,editTaskId:any}) => {
   const tasks = useSelector((state:any)=>state.tasks.tasks)

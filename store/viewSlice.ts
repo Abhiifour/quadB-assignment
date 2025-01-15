@@ -9,7 +9,7 @@ export const viewSlice = createSlice ({
     name :"viewState",
     initialState,
     reducers:{
-        updateViewState : (state,action) =>{
+        updateViewState : (state) =>{
             const currState = state.view;
             state.view = !currState;
         }

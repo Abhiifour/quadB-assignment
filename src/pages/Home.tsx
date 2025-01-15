@@ -16,7 +16,7 @@ import TaskDetail from "../components/TaskDetail";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {addTask, removeTask} from "../../store/taskSlice"
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 
 Chart.register(ArcElement, Tooltip, Legend, Title);
 Chart.defaults.plugins.tooltip.backgroundColor = 'rgb(0, 0, 156)';
@@ -28,7 +28,7 @@ Chart.defaults.plugins.legend.maxWidth = 1;
 const options = {
     plugins: {
       legend: {
-        position: 'bottom',
+        position: 'bottom' as const,
         labels: {
           usePointStyle: true,
           pointStyle: 'circle'
@@ -49,7 +49,7 @@ export default function Home(){
     const [dueTime , setDueTime] = useState("")
     const [sideBar , setSideBar] = useState(false);
     const [editTaskId, setEditTaskId] = useState('')
-    const [filter , setFilter] = useState("all tasks")
+    const [ , setFilter] = useState("all tasks")
     const menuState = useSelector((state:any) => state.menuState.menu)
     const dispatch = useDispatch()  
     const taskData = useSelector((state : any) => state.tasks.tasks)

@@ -9,7 +9,7 @@ export const menuSlice = createSlice ({
     name :"menuSlice",
     initialState,
     reducers:{
-        updateMenuState : (state,action) =>{
+        updateMenuState : (state,) =>{
             const currState = state.menu;
             state.menu = !currState;
         }

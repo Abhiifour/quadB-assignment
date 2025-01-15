@@ -22,7 +22,7 @@ export default function Layout({children}:{children:any}){
             <div className="flex justify-between py-[12px] items-center">
                 {/* left  */}
                 <div className="flex items-center gap-[24px]">
-                <div className="text-[24px] cursor-pointer" onClick={() => dispatch(updateMenuState(false))}>
+                <div className="text-[24px] cursor-pointer" onClick={() => dispatch(updateMenuState())}>
                     <IoIosMenu/>
                     </div>
                     <div className="flex gap-1 font-bold text-primary">
@@ -38,9 +38,9 @@ export default function Layout({children}:{children:any}){
                        <CiSearch/>
                     </div>
                     {
-                        view ?  <div className="cursor-pointer" onClick={()=>dispatch(updateViewState(true))}>
+                        view ?  <div className="cursor-pointer" onClick={()=>dispatch(updateViewState())}>
                         <CiGrid41/>
-                     </div> :  <div className="cursor-pointer" onClick={()=>dispatch(updateViewState(true))}>
+                     </div> :  <div className="cursor-pointer" onClick={()=>dispatch(updateViewState())}>
                        <IoListOutline/>
                     </div>
                     }

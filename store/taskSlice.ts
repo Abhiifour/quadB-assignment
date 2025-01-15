@@ -2,18 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 import { nanoid } from "@reduxjs/toolkit";
 
 
-interface task {
-        title: string,
-        description : string
-        due: Date,
-        steps: string[],
-        completed: false,
-        repeat: false,  
-        important:false,
-        category : string
-        priority : string
-        id : string
-}
+// interface task {
+//         title: string,
+//         description : string
+//         due: Date,
+//         steps: string[],
+//         completed: false,
+//         repeat: false,  
+//         important:false,
+//         category : string
+//         priority : string
+//         id : string
+// }
 
 const initialState = {
     tasks : [{
