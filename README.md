@@ -3,7 +3,11 @@
 A feature-rich Todo application built with React, Redux, and modern web technologies. This application includes user authentication, task management with priorities and responsive design.
 
 visit : https://quad-b-assignment-phi.vercel.app/
+
+
 ![ezgif-6-cbbeac58af](https://github.com/user-attachments/assets/ef48cd07-f719-4b48-80ad-7e10a10c6560)
+
+
 
 
 
