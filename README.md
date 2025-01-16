@@ -5,8 +5,8 @@ A feature-rich Todo application built with React, Redux, and modern web technolo
 visit : https://quad-b-assignment-phi.vercel.app/
 
 
-![Screen Recording 2025-01-16 150636 - Trim](https://github.com/user-attachments/assets/0759ddb7-4d4a-4153-813e-7f43a546247d)
 
+![Screen Recording 2025-01-16 150636 - Trim](https://github.com/user-attachments/assets/a0b1d2b7-a58d-4d94-826d-b7ac0012e29a)
 
 
 
