@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {addTask, removeTask} from "../../store/taskSlice"
 import Select from '@mui/material/Select';
 import toast from "react-hot-toast";
+import { logoutUser } from "../../store/userSlice";
 
 Chart.register(ArcElement, Tooltip, Legend, Title);
 Chart.defaults.plugins.tooltip.backgroundColor = 'rgb(0, 0, 156)';
@@ -59,7 +60,7 @@ export default function Home(){
     const completedPercentage = (completedTasks / taskData.length) * 100;
     const pendingPercentage = (pendingTasks / taskData.length) * 100;
     const userDetails = useSelector((state:any) => state.userState.user)
-    
+    const [logout,setLogout] = useState(false)
 
     
     function handleSubmit(e:any){
@@ -126,8 +127,12 @@ export default function Home(){
                 <div className="w-[118px] h-[118px] rounded-full overflow-hidden absolute -top-16 ">
                   <img src={profile} alt="" className="w-full h-full object-fill" />
                  </div>
-                 <h1 className="text-[15px] text-text-color font-medium font-Outfit leading-5 dark:text-white mt-2">Hey ,{userDetails.name}</h1>
-   
+                 <h1 className="text-[15px] text-text-color font-medium font-Outfit leading-5 dark:text-white mt-2 cursor-pointer" onClick={() => setLogout(!logout)}>Hey ,{userDetails.name}</h1>
+                 {
+                  logout ?   <div className="text-center text-[15px] text-semibold font-Outfit cursor-pointer dark:text-white py-3 border px-6 rounded-md border-gray-400 dark:border-white" onClick={() => dispatch(logoutUser())}>
+                  Logout
+                 </div> : ""
+                 }
                  <div className="bg-bg-white dark:text-white dark:bg-bg-gray text-[15px] font-Outfit font-medium w-[85%] h-[248px] flex flex-col justify-center" >
                    <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]" onClick={() => toast("Features Coming Shortly 🚀")}>
                        <div className="text-[24px]" onClick={() => setFilter("all tasks")}>
@@ -135,19 +140,19 @@ export default function Home(){
                        </div>
                        <p>All Tasks</p>
                    </div>
-                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]" onClick={() => toast("Features Coming Shortly 🚀")}>
                        <div className="text-[24px] font-thin">
                        <CiCalendar/>
                        </div>
                        <p>Today</p>
                    </div>
-                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]" onClick={() => toast("Features Coming Shortly 🚀")}>
                        <div className="text-[24px] cursor-pointer" >
                        <CiStar/>
                        </div>
                        <p>Important</p>
                    </div>
-                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]" onClick={() => toast("Features Coming Shortly 🚀")}>
                        <div className="text-[24px]">
                        <CiMap/>
                        </div>
@@ -155,7 +160,7 @@ export default function Home(){
                    </div>
                    
    
-                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]" onClick={() => toast("Features Coming Shortly 🚀")}>
                        <div className="text-[24px]">
                        <MdOutlineAssignmentInd/>
                        </div>
