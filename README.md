@@ -1,50 +1,129 @@
-# React + TypeScript + Vite
+# Advanced Todo Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A feature-rich Todo application built with React, Redux, and modern web technologies. This application includes user authentication, task management with priorities and responsive design.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication**
+  - Login functionality
+  - Protected Todos for authenticated users
+  - Redux-managed authentication state
 
-## Expanding the ESLint configuration
+- **Task Management**
+  - Create, read, and delete tasks
+  - Priority levels (High, Medium, Low)
+  - Persistent storage 
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Responsive Design**
+  - Mobile-first approach
+  - TailwindCSS implementation
+  - Consistent experience across devices
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Technology Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Frontend Framework:** React
+- **State Management:** Redux + Redux Toolkit
+- **Styling:** Tailwind CSS
+- **Storage:** Local Storage
+- **Type Safety:** TypeScript
+
+## 📦 Project Structure
+
+```
+src/
+├── components/
+│   ├── TaskDetails.tsx
+│   ├──  TaskList.tsx
+├── pages/
+│   ├── Home.tsx
+│   ├──  LandingPage.tsx
+├── store/
+│   ├── editSlice.ts
+│   ├── menuSlice.ts
+│   ├── taskSlice.ts
+│   ├── userSlice.ts
+│   ├── store.ts
+│   └── viewSlice.ts
+└── App.tsx
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🚦 Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/todo-app.git
+   cd todo-app
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+## 💻 Available Scripts
+
+- `npm run dev` - Run development server
+- `npm build` - Build for production
+- `npm test` - Run tests
+- `npm run lint` - Run linting
+- `npm run format` - Format code with Prettier
+
+## 🔑 Authentication
+
+The application uses a simulated authentication process with Redux:
+
+```typescript
+// Example login action
+function Auth(){
+    if(mode === "login"){
+// Login Credentials - email and password .
+      dispatch(loginUser({
+        email:email,  
+        password:password
+       
+      }))
+    }
+    else{
+// Signup Credentials - username , email and password .
+      dispatch(updateUserState({
+        name:username,
+        email,
+        password
+      }))
+    }
+  }
 ```
+
+## 📱 Responsive Design
+
+The application follows a mobile-first approach using Tailwind CSS breakpoints:
+
+- Mobile: < 640px
+- Tablet: 640px - 1024px
+- Desktop: > 1024px
+
+
+`
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 👥 Authors
+
+- Your Name - [GitHub Profile](https://github.com/Abhiifour)
