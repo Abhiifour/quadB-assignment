@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {addTask, removeTask} from "../../store/taskSlice"
 import Select from '@mui/material/Select';
+import toast from "react-hot-toast";
 
 Chart.register(ArcElement, Tooltip, Legend, Title);
 Chart.defaults.plugins.tooltip.backgroundColor = 'rgb(0, 0, 156)';
@@ -57,6 +58,7 @@ export default function Home(){
     const pendingTasks = taskData.length - completedTasks;
     const completedPercentage = (completedTasks / taskData.length) * 100;
     const pendingPercentage = (pendingTasks / taskData.length) * 100;
+    const userDetails = useSelector((state:any) => state.userState.user)
     
 
     
@@ -80,6 +82,7 @@ export default function Home(){
             setTaskPriority("")
             setDueTime("")
             setTaskText("")
+            toast("Task Added !")
         }
 
         console.log("action dispatched")
@@ -113,38 +116,38 @@ export default function Home(){
       
 
     return (
-        <div className="w-full h-screen md:flex md:gap-3 ">
+        <div className="w-full min-h-screen md:flex md:gap-3 ">
             {/* left */}
 
             {
                 menuState ? <div className="md:w-[350px] w-full flex-col justify-center items-center pt-[100px]">
-                <div className="bg-secondary w-full h-[800px] flex flex-col gap-2 items-center relative pt-[70px]">
+                <div className="bg-secondary dark:bg-[#2C2C2C] w-full h-[800px] flex flex-col gap-2 items-center relative pt-[70px]">
    
                 <div className="w-[118px] h-[118px] rounded-full overflow-hidden absolute -top-16 ">
                   <img src={profile} alt="" className="w-full h-full object-fill" />
                  </div>
-                 <h1 className="text-[15px] text-text-color font-medium font-Outfit leading-5">Hey , Admin</h1>
+                 <h1 className="text-[15px] text-text-color font-medium font-Outfit leading-5 dark:text-white mt-2">Hey ,{userDetails.name}</h1>
    
-                 <div className="bg-bg-white text-[15px] font-Outfit font-medium w-[85%] h-[248px] flex flex-col justify-center" >
-                   <div className="flex gap-[16px] py-2 px-4">
+                 <div className="bg-bg-white dark:text-white dark:bg-bg-gray text-[15px] font-Outfit font-medium w-[85%] h-[248px] flex flex-col justify-center" >
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]" onClick={() => toast("Features Coming Shortly 🚀")}>
                        <div className="text-[24px]" onClick={() => setFilter("all tasks")}>
                        <PiNotepad/>
                        </div>
                        <p>All Tasks</p>
                    </div>
-                   <div className="flex gap-[16px] py-2 px-4">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
                        <div className="text-[24px] font-thin">
                        <CiCalendar/>
                        </div>
                        <p>Today</p>
                    </div>
-                   <div className="flex gap-[16px] py-2 px-4">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
                        <div className="text-[24px] cursor-pointer" >
                        <CiStar/>
                        </div>
                        <p>Important</p>
                    </div>
-                   <div className="flex gap-[16px] py-2 px-4">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
                        <div className="text-[24px]">
                        <CiMap/>
                        </div>
@@ -152,7 +155,7 @@ export default function Home(){
                    </div>
                    
    
-                   <div className="flex gap-[16px] py-2 px-4">
+                   <div className="flex gap-[16px] py-2 px-4 dark:hover:bg-[#347136] rounded-xl hover:bg-[#ade6ae]">
                        <div className="text-[24px]">
                        <MdOutlineAssignmentInd/>
                        </div>
@@ -160,12 +163,12 @@ export default function Home(){
                    </div>
                  </div>
    
-                 <div className="bg-bg-white text-[15px] font-Outfit font-medium w-[85%] h-[80px] gap-2 flex items-center text-text-color px-4" >
+                 <div className="bg-bg-white dark:text-white dark:bg-bg-gray text-[15px] font-Outfit font-medium w-[85%] h-[80px] gap-2 flex items-center text-text-color px-4" onClick={() => toast("Features Coming Shortly 🚀")} >
                    <div className="text-[24px]"><BsPlusLg/></div>
                    <p>Add List</p>
                  </div>
    
-                 <div className="bg-bg-white text-[15px] font-Outfit font-medium w-[85%] h-[300px] gap-2 flex flex-col text-text-color px-4" >
+                 <div className="bg-bg-white dark:text-white dark:bg-bg-gray text-[15px] font-Outfit font-medium w-[85%] h-[300px] gap-2 flex flex-col text-text-color px-4" >
                    <p>Today's Tasks</p>
                    <p className="text-[21px] ">{taskData?.length}</p>
                    <div className="w-[200px] h-[200px]">
@@ -189,35 +192,35 @@ export default function Home(){
                     </div>
                 </div>
                 {/* add task */}
-                <div className="h-[175px] w-full bg-secondary flex flex-col pt-[30px]">
+                <div className="h-[175px] w-full bg-secondary flex flex-col pt-[30px] dark:bg-[#2F3630] dark:text-white">
                 <form onSubmit={handleSubmit} className="flex  gap-4 flex-col items-start font-Outfit">
-                    <div className="md:w-[500px] px-[20px] w-[90%]">
+                    <div className="md:w-[500px] px-[20px] w-[90%] dark:text-white">
                     <input
                     
                         value={taskText}
                         onChange={(e) => setTaskText(e.target.value)}
                         placeholder="Add A Task"
-                        className="w-full p-2 outline-none text-text-color placeholder-gray-400 py-[10px] text-[15px] bg-inherit resize-none"
+                        className="w-full p-2 outline-none text-text-color dark:text-white placeholder-gray-400 py-[10px] text-[15px] bg-inherit resize-none"
                         onKeyPress={(e) => { if (e.key === 'Enter') handleSubmit}}
                     />
 
                     
                     </div>
                     
-                    <div className="flex items-center gap-4 w-full justify-between text-gray-400 px-[20px]">
+                    <div className="flex items-center gap-4 w-full justify-between text-gray-400 px-[20px] dark:text-white">
                     
-                    <div className="flex gap-3 text-text-color">
-                    <button type="button" className="hover:text-gray-600">
+                    <div className="flex gap-3 text-text-color dark:text-white ">
+                    <button type="button" className="hover:text-gray-600" onClick={() => toast("Features Coming Shortly 🚀")}>
                         <Bell size={18} />
                     </button>
-                    <button type="button" className="hover:text-gray-600">
+                    <button type="button" className="hover:text-gray-600 dark:text-white" onClick={() => toast("Features Coming Shortly 🚀")}>
                         <RefreshCcw size={18} />
                     </button>
                     <button type="button" className="relative hover:text-gray-600 cursor-default" >
                         <input type="date" className="absolute inset-0 opacity-0 w-full cursor-pointer" onChange={(e)=>setDueTime(e.target.value)}/>
                         <Calendar size={18} />
                     </button>
-                    <div className="text-[20px]  cursor-pointer">
+                    <div className="text-[20px] relative cursor-pointer">
                        
                         <Select
                             value={taskPriority}
@@ -250,7 +253,7 @@ export default function Home(){
                     </div>
                     <button
                         type="submit"
-                        className="bg-[#ade6ae] px-3 text-primary py-2 font-Outfit rounded-lg text-[15px] font-medium hover:bg-green-200"
+                        className="bg-[#ade6ae] px-3 text-primary py-2 font-Outfit rounded-lg text-[15px] font-medium hover:bg-green-200 dark:text-white dark:bg-[#347136]"
                           
                      >
                         ADD TASK

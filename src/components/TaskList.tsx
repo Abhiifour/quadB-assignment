@@ -13,14 +13,14 @@ export default function TaskList({tasks,setSideBar,setEditTaskId,}:{tasks:any[],
     const view = useSelector((state:any) => state.viewState.view)
 
     if (tasks.length == 0) {
-        return <div className="text-[15px] font-Outfit text-gray-400 text-center py-28">No tasks available</div>;
+        return <div className="text-[15px] font-Outfit text-gray-400 text-center py-28 dark:bg-bg-gray">No tasks available</div>;
     }
 
     if(view)
     return (
-        <div className="w-full font-Outfit">
+        <div className="w-full font-Outfit dark:bg-bg-gray">
             {/* list */}
-            <div className="w-full flex flex-col min-h-[300px]">
+            <div className="w-full flex flex-col min-h-[300px] ">
             {   
                 tasks?.filter((task:any) => task.completed === false).map((task:any) => <ListCard key={task.id} task={task} setEditTaskId={setEditTaskId} setSideBar={setSideBar}/> )
             }
@@ -28,7 +28,7 @@ export default function TaskList({tasks,setSideBar,setEditTaskId,}:{tasks:any[],
            
            
 
-            <h1>Completed</h1>
+            <h1 className="py-6 dark:text-white">Completed</h1>
             {   completedTasks.length ?
                 completedTasks?.map((task:any) => <div className="line-through tracking-tight"> <ListCard key={task.id} task={task} setEditTaskId={setEditTaskId} setSideBar={setSideBar}/></div> ) 
                 : <div className="text-[15px] font-Outfit text-gray-400 text-center py-28">No Completed Tasks !</div>
@@ -37,7 +37,7 @@ export default function TaskList({tasks,setSideBar,setEditTaskId,}:{tasks:any[],
         </div>
     )
     else return (
-        <div className="w-full font-Outfit">
+        <div className="w-full font-Outfit dark:bg-bg-gray">
         {/* grid */}
         <div className="w-full flex flex-wrap gap-2 min-h-[300px]">
         {   
@@ -47,7 +47,7 @@ export default function TaskList({tasks,setSideBar,setEditTaskId,}:{tasks:any[],
         
        
 
-        <h1 className="py-6">Completed</h1>
+        <h1 className="py-6 dark:text-white">Completed</h1>
         {   completedTasks.length ?
                 completedTasks?.map((task:any) => <div className="line-through tracking-tight"> <GridCard key={task.id} task={task} setEditTaskId={setEditTaskId} setSideBar={setSideBar}/></div> ) 
                 : <div className="text-[15px] font-Outfit text-gray-400 text-center py-28">No Completed Tasks !</div>
@@ -59,14 +59,14 @@ export default function TaskList({tasks,setSideBar,setEditTaskId,}:{tasks:any[],
 function GridCard({task, setSideBar,setEditTaskId}:{task:any, setSideBar:any,setEditTaskId:any}){
     const dispatch = useDispatch()
     return(
-        <div className=" flex h-[140px] px-4 md:w-[32%] w-full justify-between items-center py-5  border">
+        <div className=" flex h-[140px] px-4 md:w-[32%] w-full justify-between items-center py-5  border dark:text-white">
         <div className="flex gap-4 items-center">
         {
             task?.completed ? 
-            <div className="text-primary text-[24px] cursor-pointer" onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
+            <div className="text-primary text-[24px] cursor-pointer dark:text-white" onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
             <IoCheckbox/>
             </div> 
-            :<div className="text-text-color text-[24px] cursor-pointer" onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
+            :<div className="text-text-color text-[24px] cursor-pointer dark:text-white" onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
             <AiOutlineBorder/>
             </div>
         }
@@ -78,10 +78,10 @@ function GridCard({task, setSideBar,setEditTaskId}:{task:any, setSideBar:any,set
             </div>
         {
              task?.important ? 
-             <div className="text-primary text-[24px] cursor-pointer" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
+             <div className="text-primary text-[24px] cursor-pointer dark:text-white" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
              <AiFillStar/>
              </div> 
-             :<div className="text-text-color text-[24px] cursor-pointer" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
+             :<div className="text-text-color text-[24px] cursor-pointer dark:text-white" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
              <AiOutlineStar/>
              </div>
         }
@@ -95,14 +95,14 @@ function ListCard({task, setSideBar,setEditTaskId}:{task:any, setSideBar:any,set
     const dispatch = useDispatch()
     
     return(
-         <div className="w-full flex justify-between items-center py-5 md:pr-7 border-t-2 ">
+         <div className="w-full flex justify-between items-center py-5 md:pr-7 border-t-2 dark:text-white">
                 <div className="flex gap-4 items-center">
                 {
                 task?.completed ? 
-                <div className="text-primary text-[24px] cursor-pointer"  onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
+                <div className="text-primary text-[24px] cursor-pointer dark:text-white"  onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
                 <IoCheckbox/>
                 </div> 
-                :<div className="text-text-color text-[24px] cursor-pointer" onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
+                :<div className="text-text-color text-[24px] cursor-pointer dark:text-white" onClick={()=> dispatch(toggleCompleted({id:task?.id}))}>
                 <AiOutlineBorder/>
                 </div>
                 }
@@ -113,10 +113,10 @@ function ListCard({task, setSideBar,setEditTaskId}:{task:any, setSideBar:any,set
                 </div>
                 {
                     task?.important ? 
-                    <div className="text-primary text-[24px] cursor-pointer" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
+                    <div className="text-primary text-[24px] cursor-pointer dark:text-white" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
                     <AiFillStar/>
                     </div> 
-                    :<div className="text-text-color text-[24px] cursor-pointer" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
+                    :<div className="text-text-color text-[24px] cursor-pointer dark:text-white" onClick={()=> dispatch(toggleImportant({id:task?.id}))}>
                     <AiOutlineStar/>
                     </div>
                 }
