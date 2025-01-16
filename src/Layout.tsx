@@ -34,7 +34,7 @@ export default function Layout({children}:{children:any}){
             <div className="flex justify-between py-[12px] items-center">
                 {/* left  */}
                 <div className="flex items-center gap-[24px] dark:text-white">
-                <div className="text-[24px] cursor-pointer hover:bg-black " onClick={() => dispatch(updateMenuState())}>
+                <div className="text-[24px] cursor-pointer" onClick={() => dispatch(updateMenuState())}>
                     <IoIosMenu/>
                 </div>
                     <div className="flex gap-1 font-bold text-primary">
